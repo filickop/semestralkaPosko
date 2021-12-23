@@ -1,0 +1,7 @@
+/usr/bin/cmake -DCMAKE_BUILD_TYPE=Debug -G "CodeBlocks - Unix Makefiles" /tmp/tmp.lpTHIfbsgv
+CMake Error at CMakeLists.txt:8 (target_link_libraries):
+  target_link_libraries called with incorrect number of arguments
+
+
+-- Configuring incomplete, errors occurred!
+See also "/tmp/tmp.lpTHIfbsgv/cmake-build-debug/CMakeFiles/CMakeOutput.log".
