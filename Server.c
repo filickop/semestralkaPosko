@@ -48,14 +48,14 @@ bool connEst(char *conn[]) {
 }
 
 void comunication() {
+    cli_len = sizeof(cli_addr);
+    newsockfd = accept(sockfd, (struct sockaddr*)&cli_addr, &cli_len);
+    if (newsockfd < 0)
+    {
+        perror("ERROR on accept");
+        //return 3;
+    }
     for(;;) {
-        cli_len = sizeof(cli_addr);
-        newsockfd = accept(sockfd, (struct sockaddr*)&cli_addr, &cli_len);
-        if (newsockfd < 0)
-        {
-            perror("ERROR on accept");
-            //return 3;
-        }
 
         bzero(buffer,256);
         n = read(newsockfd, buffer, 255);
@@ -74,8 +74,9 @@ void comunication() {
             //return 5;
         }
 
-        close(newsockfd);
+
     }
+    close(newsockfd);
 }
 
 void offServer() {

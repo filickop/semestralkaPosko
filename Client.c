@@ -30,12 +30,25 @@ bool conEstClient(char *conn[]) {
             server->h_length
     );
     serv_addrClient.sin_port = htons(atoi(conn[0]));
+
+    sockfdClient = socket(AF_INET, SOCK_STREAM, 0);
+    if (sockfdClient < 0)
+    {
+        perror("Error creating socket");
+        return false;
+    }
+
+    if(connect(sockfdClient, (struct sockaddr*)&serv_addrClient, sizeof(serv_addrClient)) < 0)
+    {
+        perror("Error connecting to socket");
+        return false;
+    }
     return true;
 }
 
 int communicationClient() {
     for (;;) {
-        sockfdClient = socket(AF_INET, SOCK_STREAM, 0);
+        /*sockfdClient = socket(AF_INET, SOCK_STREAM, 0);
         if (sockfdClient < 0)
         {
             perror("Error creating socket");
@@ -46,7 +59,7 @@ int communicationClient() {
         {
             perror("Error connecting to socket");
             return 4;
-        }
+        }*/
 
         printf("Please enter a message: ");
         bzero(bufferC,256);
@@ -70,7 +83,7 @@ int communicationClient() {
         }
 
         printf("%s\n",bufferC);
-        close(sockfdClient);
+        //close(sockfdClient);
     }
 }
 
