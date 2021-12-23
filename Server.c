@@ -9,7 +9,7 @@
 
 bool connectionSuccesful = false;
 
-int sockfd, newsockfd;
+int sockfd, player1, player2;
 socklen_t cli_len;
 struct sockaddr_in serv_addr, cli_addr;
 int n;
@@ -49,16 +49,26 @@ bool connEst(char *conn[]) {
 
 void comunication() {
     cli_len = sizeof(cli_addr);
-    newsockfd = accept(sockfd, (struct sockaddr*)&cli_addr, &cli_len);
-    if (newsockfd < 0)
+    player1 = accept(sockfd, (struct sockaddr*)&cli_addr, &cli_len);
+    player2 = accept(sockfd, (struct sockaddr*)&cli_addr, &cli_len);
+    if (player1 < 0 || player2 < 0)
     {
         perror("ERROR on accept");
         //return 3;
     }
+    bool player1Play = true;
     for(;;) {
 
         bzero(buffer,256);
-        n = read(newsockfd, buffer, 255);
+        if(player1Play) {
+            n = read(player1, buffer, 255);
+            player1Play = false;
+        }
+        else {
+            n = read(player2, buffer, 255);
+            player1Play = true;
+        }
+
         if (n < 0)
         {
             perror("Error reading from socket");
@@ -66,8 +76,14 @@ void comunication() {
         }
         printf("Here is the message: %s\n", buffer);
 
-        const char* msg = "I got your message";
-        n = write(newsockfd, msg, strlen(msg)+1);
+        //const char* msg = buffer;
+        if(player1Play) {
+            n = write(player1, buffer, strlen(buffer)+1);
+        }
+        else{
+            n = write(player2, buffer, strlen(buffer)+1);
+        }
+
         if (n < 0)
         {
             perror("Error writing to socket");
@@ -76,7 +92,7 @@ void comunication() {
 
 
     }
-    close(newsockfd);
+    close(player1);
 }
 
 void offServer() {
