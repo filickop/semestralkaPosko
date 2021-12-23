@@ -62,10 +62,13 @@ void comunication() {
         bzero(buffer,256);
         if(player1Play) {
             n = read(player1, buffer, 255);
+            n = write(player2, buffer, strlen(buffer)+1);
+            printf("%d", n);
             player1Play = false;
         }
         else {
             n = read(player2, buffer, 255);
+            n = write(player1, buffer, strlen(buffer)+1);
             player1Play = true;
         }
 
@@ -77,12 +80,10 @@ void comunication() {
         printf("Here is the message: %s\n", buffer);
 
         //const char* msg = buffer;
-        if(player1Play) {
-            n = write(player1, buffer, strlen(buffer)+1);
-        }
-        else{
-            n = write(player2, buffer, strlen(buffer)+1);
-        }
+
+
+
+
 
         if (n < 0)
         {

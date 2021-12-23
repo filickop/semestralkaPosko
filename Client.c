@@ -48,18 +48,7 @@ bool conEstClient(char *conn[]) {
 
 int communicationClient() {
     for (;;) {
-        /*sockfdClient = socket(AF_INET, SOCK_STREAM, 0);
-        if (sockfdClient < 0)
-        {
-            perror("Error creating socket");
-            return 3;
-        }
 
-        if(connect(sockfdClient, (struct sockaddr*)&serv_addrClient, sizeof(serv_addrClient)) < 0)
-        {
-            perror("Error connecting to socket");
-            return 4;
-        }*/
 
         printf("Please enter a message: ");
         bzero(bufferC,256);

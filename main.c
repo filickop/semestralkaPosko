@@ -40,14 +40,23 @@ int main(int argc, char *argv[]) {
 
     srand(time(NULL));
 
-    pthread_t server;
-    pthread_t client;
+    if(false) {
 
-    pthread_create(&server,NULL, spustiServer, NULL);
-    pthread_create(&client, NULL, spustiClient, NULL);
+        pthread_t server;
+        pthread_t client;
 
-    pthread_join(server, NULL);
-    pthread_join(client, NULL);
+        pthread_create(&server,NULL, spustiServer, NULL);
+        pthread_create(&client, NULL, spustiClient, NULL);
+
+        pthread_join(server, NULL);
+        pthread_join(client, NULL);
+    }
+    else if (true) {
+        pthread_t client;
+        pthread_create(&client, NULL, spustiClient, NULL);
+        pthread_join(client, NULL);
+    }
+
 
     return 0;
 }
