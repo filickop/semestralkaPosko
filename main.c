@@ -27,11 +27,13 @@ void * spustiServer(void * data) {
 
 void * spustiClient(void * data) {
     bool connectionSuccessfull = false;
-    sleep(1);
+
     do{
+        sleep(1);
         connectionSuccessfull = conEstClient(connection);
     } while(!connectionSuccessfull);
 
+    printf("pripojenie uspesne\n");
     communicationClient();
 
 }
