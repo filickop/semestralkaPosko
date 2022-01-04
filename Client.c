@@ -52,9 +52,8 @@ bool conEstClient(char *conn[]) {
 void writeToArrayC(int symbol) {
     int x = bufferC[0] - '0';
     int y = bufferC[1] - '0';
-    if(ticTacToeArrayC[x][y] == 0) {
-        ticTacToeArrayC[x][y] = symbol;
-    }
+
+    ticTacToeArrayC[x][y] = symbol;
 }
 
 void writeArrayToScreen() {
