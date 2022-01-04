@@ -40,7 +40,7 @@ int main(int argc, char *argv[]) {
 
     srand(time(NULL));
 
-    if(false) {
+    if(true) {
 
         pthread_t server;
         pthread_t client;
@@ -51,7 +51,7 @@ int main(int argc, char *argv[]) {
         pthread_join(server, NULL);
         pthread_join(client, NULL);
     }
-    else if (true) {
+    else if (false) {
         pthread_t client;
         pthread_create(&client, NULL, spustiClient, NULL);
         pthread_join(client, NULL);

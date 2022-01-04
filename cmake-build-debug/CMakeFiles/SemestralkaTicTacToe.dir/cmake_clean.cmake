@@ -1,7 +1,7 @@
 file(REMOVE_RECURSE
   "CMakeFiles/SemestralkaTicTacToe.dir/main.c.o"
-  "SemestralkaTicTacToe.pdb"
   "SemestralkaTicTacToe"
+  "SemestralkaTicTacToe.pdb"
 )
 
 # Per-language clean rules from dependency scanning.
