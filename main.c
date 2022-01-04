@@ -27,7 +27,7 @@ void * spustiServer(void * data) {
 
 void * spustiClient(void * data) {
     bool connectionSuccessfull = false;
-    //sleep(1);
+    sleep(1);
     do{
         connectionSuccessfull = conEstClient(connection);
     } while(!connectionSuccessfull);

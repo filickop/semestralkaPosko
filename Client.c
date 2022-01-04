@@ -57,6 +57,7 @@ void writeToArrayC(int symbol) {
 }
 
 void writeArrayToScreen() {
+    printf("POLE CLIENT\n");
     for(int x = 0; x < 3; x++){
         for(int y = 0; y < 3; y++) {
             printf("%d", ticTacToeArrayC[x][y]);
@@ -92,10 +93,18 @@ int communicationClient() {
 
             writeArrayToScreen();
         }
+        int xTemp;
+        int yTemp;
+        do{
+            printf("Please enter a message: ");
+            bzero(bufferC,256);
+            fgets(bufferC, 255, stdin);
 
-        printf("Please enter a message: ");
-        bzero(bufferC,256);
-        fgets(bufferC, 255, stdin);
+            xTemp = bufferC[0] - '0';
+            yTemp = bufferC[1] - '0';
+
+        } while(ticTacToeArrayC[xTemp][yTemp] != 0);
+
 
         //printf(bufferC);
 
