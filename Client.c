@@ -15,6 +15,8 @@ char bufferC[256];
 
 char *connection[];
 
+int ticTacToeArrayC[3][3];
+
 bool conEstClient(char *conn[]) {
     *connection = *conn;
     server = gethostbyname(conn[1]);
@@ -47,8 +49,21 @@ bool conEstClient(char *conn[]) {
     }
     return true;
 }
+void writeToArrayC(int symbol) {
+    int x = bufferC[0] - '0';
+    int y = bufferC[1] - '0';
+
+    ticTacToeArrayC[x][y] = symbol;
+}
 
 int communicationClient() {
+
+    for(int x = 0; x < 3; x++){
+        for(int y = 0; y < 3; y++) {
+            ticTacToeArrayC[x][y] = 0;
+        }
+    }
+
     for (;;) {
 
         if(connection[2] == "C") {
@@ -60,6 +75,8 @@ int communicationClient() {
                 perror("Error reading from socket");
                 return 6;
             }
+
+            writeToArrayC(1);
 
             printf("%s\n",bufferC);
         }
@@ -86,8 +103,18 @@ int communicationClient() {
                 return 6;
             }
 
+            writeToArrayC(2);
+
             printf("%s\n", bufferC);
         }
+        printf("POLE CLIENT\n");
+        for(int x = 0; x < 3; x++){
+            for(int y = 0; y < 3; y++) {
+                printf("%d", ticTacToeArrayC[x][y]);
+            }
+            printf("\n");
+        }
+        printf("POLE CLIENT END\n");
         //close(sockfdClient);
     }
 }

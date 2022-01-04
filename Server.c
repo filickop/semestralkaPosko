@@ -15,7 +15,7 @@ struct sockaddr_in serv_addr, cli_addr;
 int n;
 char buffer[256];
 
-int ticTacToeArray[3][3];
+int ticTacToeArrayS[3][3];
 
 bool connEst(char *conn[]) {
 
@@ -41,7 +41,7 @@ bool connEst(char *conn[]) {
 
     for (int i = 0; i < 3; ++i) {
         for (int j = 0; j < 3; ++j) {
-            ticTacToeArray[i][j] = 0;
+            ticTacToeArrayS[i][j] = 0;
         }
     }
     return true;
@@ -56,6 +56,11 @@ void comunication() {
         perror("ERROR on accept");
         //return 3;
     }
+    for(int x = 0; x < 3; x++){
+        for(int y = 0; y < 3; y++) {
+            ticTacToeArrayS[x][y] = 0;
+        }
+    }
     bool player1Play = true;
     for(;;) {
 
@@ -63,12 +68,17 @@ void comunication() {
         if(player1Play) {
             n = read(player1, buffer, 255);
             n = write(player2, buffer, strlen(buffer)+1);
-            printf("%d", n);
+            int x = buffer[0]-'0';
+            int y = buffer[1]-'0';
+            ticTacToeArrayS[x][y] = 1;
             player1Play = false;
         }
         else {
             n = read(player2, buffer, 255);
             n = write(player1, buffer, strlen(buffer)+1);
+            int x = buffer[0]-'0';
+            int y = buffer[1]-'0';
+            ticTacToeArrayS[x][y] = 2;
             player1Play = true;
         }
 
@@ -80,6 +90,12 @@ void comunication() {
         printf("Here is the message: %s\n", buffer);
 
         //const char* msg = buffer;
+        for(int x = 0; x < 3; x++){
+            for(int y = 0; y < 3; y++) {
+                printf("%d", ticTacToeArrayS[x][y]);
+            }
+            printf("\n");
+        }
 
 
 

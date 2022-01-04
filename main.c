@@ -42,6 +42,7 @@ int main(int argc, char *argv[]) {
 
     if(true) {
         connection[2] = "S";
+
         pthread_t server;
         pthread_t client;
 
