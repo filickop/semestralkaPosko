@@ -140,12 +140,14 @@ int communicationClient() {
 
             if(bufferC[2] != '0') {
                 printf("Vyhrava %d\n", (bufferC[2] - '0'));
+
                 break;
             }
             printf("%s\n", bufferC);
             writeArrayToScreen();
         }
-        //close(sockfdClient);
+
     }
+    close(sockfdClient);
 }
 

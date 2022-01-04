@@ -107,6 +107,7 @@ void comunication() {
         if(checker() != 0) {
             n = write(player2, buffer, strlen(buffer)+1);
             n = write(player1, buffer, strlen(buffer)+1);
+            break;
         }
 
         if (n < 0)
