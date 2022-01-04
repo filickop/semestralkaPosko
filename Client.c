@@ -52,8 +52,9 @@ bool conEstClient(char *conn[]) {
 void writeToArrayC(int symbol) {
     int x = bufferC[0] - '0';
     int y = bufferC[1] - '0';
-
-    ticTacToeArrayC[x][y] = symbol;
+    if(ticTacToeArrayC[x][y] == 0) {
+        ticTacToeArrayC[x][y] = symbol;
+    }
 }
 
 void writeArrayToScreen() {
@@ -89,6 +90,11 @@ int communicationClient() {
 
             writeToArrayC(1);
 
+
+            if(bufferC[2] != '0') {
+                printf("Vyhrava %d\n", (bufferC[2] - '0'));
+                break;
+            }
             printf("%s\n",bufferC);
 
             writeArrayToScreen();
@@ -133,6 +139,10 @@ int communicationClient() {
 
             writeToArrayC(2);
 
+            if(bufferC[2] != '0') {
+                printf("Vyhrava %d\n", (bufferC[2] - '0'));
+                break;
+            }
             printf("%s\n", bufferC);
             writeArrayToScreen();
         }

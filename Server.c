@@ -91,7 +91,7 @@ void comunication() {
             player1Play = false;
 
             buffer[2] = checker() + '0';
-            n = write(player2, buffer, strlen(buffer)+1);
+            //n = write(player2, buffer, strlen(buffer)+1);
         }
         else {
             n = read(player2, buffer, 255);
@@ -102,9 +102,10 @@ void comunication() {
             player1Play = true;
 
             buffer[2] = checker() + '0';
-            n = write(player1, buffer, strlen(buffer)+1);
+            //n = write(player1, buffer, strlen(buffer)+1);
         }
-
+        n = write(player2, buffer, strlen(buffer)+1);
+        n = write(player1, buffer, strlen(buffer)+1);
         if (n < 0)
         {
             perror("Error reading from socket");
