@@ -56,6 +56,16 @@ void writeToArrayC(int symbol) {
     ticTacToeArrayC[x][y] = symbol;
 }
 
+void writeArrayToScreen() {
+    for(int x = 0; x < 3; x++){
+        for(int y = 0; y < 3; y++) {
+            printf("%d", ticTacToeArrayC[x][y]);
+        }
+        printf("\n");
+    }
+    printf("POLE CLIENT END\n");
+}
+
 int communicationClient() {
 
     for(int x = 0; x < 3; x++){
@@ -79,6 +89,8 @@ int communicationClient() {
             writeToArrayC(1);
 
             printf("%s\n",bufferC);
+
+            writeArrayToScreen();
         }
 
         printf("Please enter a message: ");
@@ -93,6 +105,13 @@ int communicationClient() {
             perror("Error writing to socket");
             return 5;
         }
+        if(connection[2] == "S") {
+            writeToArrayC(1);
+        }
+        else if(connection[2] == "C") {
+            writeToArrayC(2);
+        }
+        writeArrayToScreen();
 
         if(connection[2] == "S") {
 
@@ -106,15 +125,8 @@ int communicationClient() {
             writeToArrayC(2);
 
             printf("%s\n", bufferC);
+            writeArrayToScreen();
         }
-        printf("POLE CLIENT\n");
-        for(int x = 0; x < 3; x++){
-            for(int y = 0; y < 3; y++) {
-                printf("%d", ticTacToeArrayC[x][y]);
-            }
-            printf("\n");
-        }
-        printf("POLE CLIENT END\n");
         //close(sockfdClient);
     }
 }
