@@ -4,7 +4,7 @@
 #include "Server.c"
 #include "Client.c"
 #include <pthread.h>
-char *connection[] = {"9994", "localhost"};
+char *connection[] = {"9994", "localhost", ""};
 
 void * spustiServer(void * data) {
 
@@ -41,7 +41,7 @@ int main(int argc, char *argv[]) {
     srand(time(NULL));
 
     if(true) {
-
+        connection[2] = "S";
         pthread_t server;
         pthread_t client;
 
@@ -52,6 +52,7 @@ int main(int argc, char *argv[]) {
         pthread_join(client, NULL);
     }
     else if (false) {
+        connection[2] = "C";
         pthread_t client;
         pthread_create(&client, NULL, spustiClient, NULL);
         pthread_join(client, NULL);

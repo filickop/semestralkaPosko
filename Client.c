@@ -13,8 +13,10 @@ struct hostent* server;
 
 char bufferC[256];
 
+char *connection[];
 
 bool conEstClient(char *conn[]) {
+    *connection = *conn;
     server = gethostbyname(conn[1]);
     if (server == NULL)
     {
@@ -49,6 +51,18 @@ bool conEstClient(char *conn[]) {
 int communicationClient() {
     for (;;) {
 
+        if(connection[2] == "C") {
+
+            bzero(bufferC,256);
+            nClient = read(sockfdClient, bufferC, 255);
+            if (nClient < 0)
+            {
+                perror("Error reading from socket");
+                return 6;
+            }
+
+            printf("%s\n",bufferC);
+        }
 
         printf("Please enter a message: ");
         bzero(bufferC,256);
@@ -63,15 +77,17 @@ int communicationClient() {
             return 5;
         }
 
-        bzero(bufferC,256);
-        nClient = read(sockfdClient, bufferC, 255);
-        if (nClient < 0)
-        {
-            perror("Error reading from socket");
-            return 6;
-        }
+        if(connection[2] == "S") {
 
-        printf("%s\n",bufferC);
+            bzero(bufferC, 256);
+            nClient = read(sockfdClient, bufferC, 255);
+            if (nClient < 0) {
+                perror("Error reading from socket");
+                return 6;
+            }
+
+            printf("%s\n", bufferC);
+        }
         //close(sockfdClient);
     }
 }
