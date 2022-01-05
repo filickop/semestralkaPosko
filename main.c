@@ -6,6 +6,7 @@
 #include <pthread.h>
 
 char *connection[] = {"10907", "localhost", ""};
+bool connectionSuccesfullC = false;
 
 void * spustiServer(void * data) {
 
@@ -27,16 +28,15 @@ void * spustiServer(void * data) {
 }
 
 void * spustiClient(void * data) {
-    bool connectionSuccessfull = false;
-
-    do{
+    for (int i = 0; i < 5; ++i) {
+        connectionSuccesfullC = conEstClient(connection);
+        if (connectionSuccesfullC) {
+            printf("pripojenie uspesne\n");
+            communicationClient();
+            break;
+        }
         sleep(1);
-        connectionSuccessfull = conEstClient(connection);
-    } while(!connectionSuccessfull);
-
-    printf("pripojenie uspesne\n");
-    communicationClient();
-
+    }
 }
 
 int main(int argc, char *argv[]) {
@@ -75,20 +75,22 @@ int main(int argc, char *argv[]) {
         pthread_join(client, NULL);
     }
     else if (atoi(bufff) == 2) {
-        do {
-            printf("zadajte cislo portu servera:\n");
-            bzero(bufff,10);
-            name = read(NULL, bufff,10);
-            if (atoi(bufff) > 1025 && atoi(bufff) < 21025) {
-                break;
-            }
-            printf("zadali ste nespravne cislo portu alebo nespravny format\n");
-        } while (true);
-        connection[0] = bufff;
-        connection[2] = "C";
-        pthread_t client;
-        pthread_create(&client, NULL, spustiClient, NULL);
-        pthread_join(client, NULL);
+        while (!connectionSuccesfullC) {
+            do {
+                printf("zadajte cislo portu servera:\n");
+                bzero(bufff,10);
+                name = read(NULL, bufff,10);
+                if (atoi(bufff) > 1025 && atoi(bufff) < 21025) {
+                    break;
+                }
+                printf("zadali ste nespravne cislo portu alebo nespravny format\n");
+            } while (true);
+            connection[0] = bufff;
+            connection[2] = "C";
+            pthread_t client;
+            pthread_create(&client, NULL, spustiClient, NULL);
+            pthread_join(client, NULL);
+        }
     }
 
 
