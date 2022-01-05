@@ -43,7 +43,16 @@ void writeArrayToScreen() {
     printf("POLE CLIENT\n");
     for(int x = 0; x < 3; x++){
         for(int y = 0; y < 3; y++) {
-            printf("%d", ticTacToeArrayC[x][y]);
+            if(ticTacToeArrayC[x][y] == 1) {
+                printf("X");
+            }
+            else if(ticTacToeArrayC[x][y] == 2) {
+                printf("O");
+            }
+            else {
+                printf("-");
+            }
+
         }
         printf("\n");
     }
