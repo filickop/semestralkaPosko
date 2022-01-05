@@ -1,11 +1,11 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include "Server.h"
-#include "Client.h"
+#include "Server.c"
+#include "Client.c"
 #include <pthread.h>
 
-char *connection[] = {"5295", "localhost", ""};
+char *connection[] = {"13467", "localhost", ""};
 
 void * spustiServer(void * data) {
 
@@ -43,7 +43,7 @@ int main(int argc, char *argv[]) {
 
     srand(time(NULL));
 
-    if(true) {
+    if(false) {
         connection[2] = "S";
 
         pthread_t server;
@@ -55,7 +55,7 @@ int main(int argc, char *argv[]) {
         pthread_join(server, NULL);
         pthread_join(client, NULL);
     }
-    else if (false) {
+    else if (true) {
         connection[2] = "C";
         pthread_t client;
         pthread_create(&client, NULL, spustiClient, NULL);

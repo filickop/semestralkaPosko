@@ -1,15 +1,5 @@
 #include "Client.h"
 
-/*int sockfdClient, nClient;
-struct sockaddr_in serv_addrClient;
-struct hostent* server;
-
-char bufferC[256];
-
-char *connection[];
-
-int ticTacToeArrayC[3][3];*/
-
 bool conEstClient(char *conn[]) {
     *connection = *conn;
     server = gethostbyname(conn[1]);
