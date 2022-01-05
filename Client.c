@@ -147,7 +147,6 @@ int communicationClient() {
             printf("%s\n", bufferC);
             writeArrayToScreen();
         }
-
     }
     close(sockfdClient);
 }

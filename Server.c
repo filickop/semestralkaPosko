@@ -126,10 +126,6 @@ void comunication() {
             printf("\n");
         }
 
-
-
-
-
         if (n < 0)
         {
             perror("Error writing to socket");
