@@ -45,14 +45,13 @@ int main(int argc, char *argv[]) {
 
 
     char *bufff[10];
-    int name = 0;
     do {
         printf("napis cislo pre zvolenie postupu:\n");
         printf("1 - pre zvolenie servera\n");
         printf("2 - pre zvolenie klienta\n");
         printf( "3 - pre okamzite ukoncenie programu\n");
         bzero(bufff,10);
-        name = read(NULL, bufff,10);
+        fgets( bufff,10, stdin);
         if (atoi(bufff) == 1 || atoi(bufff) == 2) {
             break;
         }
@@ -79,7 +78,7 @@ int main(int argc, char *argv[]) {
             do {
                 printf("zadajte cislo portu servera:\n");
                 bzero(bufff,10);
-                name = read(NULL, bufff,10);
+                fgets( bufff,10, stdin);
                 if (atoi(bufff) > 1025 && atoi(bufff) < 21025) {
                     break;
                 }

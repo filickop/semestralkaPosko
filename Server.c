@@ -109,7 +109,7 @@ void comunication() {
             perror("Error reading from socket");
             //return 4;
         }
-        printf("Here is the message: %s\n", buffer);
+        //printf("Here is the message: %s\n", buffer);
 
 
         /*for(int x = 0; x < 3; x++){

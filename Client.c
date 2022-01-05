@@ -103,6 +103,7 @@ int communicationClient() {
         }
         int xTemp;
         int yTemp;
+        bool isCorrect = false;
         do{
             printf("Please enter a message: ");
             bzero(bufferC,256);
@@ -111,7 +112,14 @@ int communicationClient() {
             xTemp = bufferC[0] - '0';
             yTemp = bufferC[1] - '0';
 
-        } while(ticTacToeArrayC[xTemp][yTemp] != 0);
+            if(xTemp < 0 || xTemp > 2 || yTemp < 0 || yTemp > 2) {
+                isCorrect = false;
+            }
+            else {
+                isCorrect = true;
+            }
+
+        } while(ticTacToeArrayC[xTemp][yTemp] != 0 && isCorrect);
 
 
         //printf(bufferC);
