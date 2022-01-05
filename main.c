@@ -43,7 +43,26 @@ int main(int argc, char *argv[]) {
 
     srand(time(NULL));
 
-    if(true) {
+
+    char *bufff[10];
+    int name = 0;
+    do {
+        printf("napis cislo pre zvolenie postupu:\n");
+        printf("1 - pre zvolenie servera\n");
+        printf("2 - pre zvolenie klienta\n");
+        printf( "3 - pre okamzite ukoncenie programu\n");
+        bzero(bufff,10);
+        name = read(NULL, bufff,10);
+        if (atoi(bufff) == 1 || atoi(bufff) == 2) {
+            break;
+        }
+        else if (atoi(bufff) == 3) {
+            return 0;
+        }
+        printf("zadali ste nespravne cislo pre zvolenie postupu alebo nespravny format\n");
+    } while (true);
+
+    if(atoi(bufff) == 1) {
         connection[2] = "S";
 
         pthread_t server;
@@ -55,7 +74,18 @@ int main(int argc, char *argv[]) {
         pthread_join(server, NULL);
         pthread_join(client, NULL);
     }
-    else if (true) {
+    else if (atoi(bufff) == 2) {
+        do {
+            printf("zadajte cislo portu servera:\n");
+            bzero(bufff,10);
+            name = read(NULL, bufff,10);
+            if (atoi(bufff) > 1025 && atoi(bufff) < 21025) {
+                break;
+            }
+            printf("zadali ste nespravne cislo portu alebo nespravny format\n");
+        } while (true);
+        connection[0] = bufff;
+        printf("%c\n", connection[0]);
         connection[2] = "C";
         pthread_t client;
         pthread_create(&client, NULL, spustiClient, NULL);
