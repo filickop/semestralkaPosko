@@ -70,18 +70,19 @@ int communicationClient() {
                 return 6;
             }
 
+            writeToArrayC(1);
+            writeArrayToScreen();
+
             if (bufferC[2] == '3') {
-                writeArrayToScreen();
                 printf("Nastala remiza\n");
                 break;
             }
             else if(bufferC[2] != '0') {
-                writeArrayToScreen();
                 printf("Vyhrava %d\n", (bufferC[2] - '0'));
                 break;
             }
-            writeToArrayC(1);
-            writeArrayToScreen();
+
+
             //printf("%s\n",bufferC);
         }
         int xTemp;
@@ -122,18 +123,19 @@ int communicationClient() {
                 return 6;
             }
 
+            writeToArrayC(2);
+            writeArrayToScreen();
+
             if (bufferC[2] == '3') {
-                writeArrayToScreen();
                 printf("Nastala remiza\n");
                 break;
             }
             else if(bufferC[2] != '0') {
-                writeArrayToScreen();
                 printf("Vyhrava %d\n", (bufferC[2] - '0'));
                 break;
             }
-            writeToArrayC(2);
-            writeArrayToScreen();
+
+
             //printf("%s\n", bufferC);
         }
     }
