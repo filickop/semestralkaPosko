@@ -6,7 +6,11 @@
 
 #IncludeRegexTransform: 
 
-/tmp/tmp.lpTHIfbsgv/Client.c
+/tmp/tmp.qi0qsv5C10/Client.c
+Client.h
+/tmp/tmp.qi0qsv5C10/Client.h
+
+/tmp/tmp.qi0qsv5C10/Client.h
 sys/types.h
 -
 sys/socket.h
@@ -23,8 +27,14 @@ string.h
 -
 unistd.h
 -
+stdbool.h
+-
 
-/tmp/tmp.lpTHIfbsgv/Server.c
+/tmp/tmp.qi0qsv5C10/Server.c
+Server.h
+/tmp/tmp.qi0qsv5C10/Server.h
+
+/tmp/tmp.qi0qsv5C10/Server.h
 sys/types.h
 -
 sys/socket.h
@@ -42,7 +52,7 @@ unistd.h
 stdbool.h
 -
 
-/tmp/tmp.lpTHIfbsgv/main.c
+/tmp/tmp.qi0qsv5C10/main.c
 stdio.h
 -
 stdlib.h
@@ -50,9 +60,9 @@ stdlib.h
 string.h
 -
 Server.c
-/tmp/tmp.lpTHIfbsgv/Server.c
+/tmp/tmp.qi0qsv5C10/Server.c
 Client.c
-/tmp/tmp.lpTHIfbsgv/Client.c
+/tmp/tmp.qi0qsv5C10/Client.c
 pthread.h
 -
 

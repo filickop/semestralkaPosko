@@ -4,8 +4,9 @@
 #include "Server.c"
 #include "Client.c"
 #include <pthread.h>
+#include <sdl2/sdl.h>
 
-char *connection[] = {"13467", "localhost", ""};
+char *connection[] = {"10907", "localhost", ""};
 
 void * spustiServer(void * data) {
 
