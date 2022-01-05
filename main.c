@@ -1,10 +1,11 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include "Server.c"
-#include "Client.c"
+#include "Server.h"
+#include "Client.h"
 #include <pthread.h>
-char *connection[] = {"17376", "localhost", ""};
+
+char *connection[] = {"5295", "localhost", ""};
 
 void * spustiServer(void * data) {
 

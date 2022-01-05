@@ -1,11 +1,11 @@
-#include <sys/types.h>
+/*#include <sys/types.h>
 #include <sys/socket.h>
 #include <netinet/in.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 #include <unistd.h>
-#include <stdbool.h>
+#include <stdbool.h>*/
 #include "Server.h"
 
 /*bool connectionSuccesful = false;

@@ -1,6 +1,12 @@
-//
-// Created by namer on 5. 1. 2022.
-//
+#include <sys/types.h>
+#include <sys/socket.h>
+#include <netinet/in.h>
+#include <netdb.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <unistd.h>
+#include <stdbool.h>
 
 #ifndef SEMESTRALKATICTACTOE_CLIENT_H
 #define SEMESTRALKATICTACTOE_CLIENT_H
