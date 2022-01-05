@@ -6,8 +6,9 @@
 #include <stdlib.h>
 #include <string.h>
 #include <unistd.h>
+#include "Client.h"
 
-int sockfdClient, nClient;
+/*int sockfdClient, nClient;
 struct sockaddr_in serv_addrClient;
 struct hostent* server;
 
@@ -15,7 +16,7 @@ char bufferC[256];
 
 char *connection[];
 
-int ticTacToeArrayC[3][3];
+int ticTacToeArrayC[3][3];*/
 
 bool conEstClient(char *conn[]) {
     *connection = *conn;

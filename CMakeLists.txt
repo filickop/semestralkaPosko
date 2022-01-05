@@ -3,6 +3,6 @@ project(SemestralkaTicTacToe C)
 
 set(CMAKE_C_STANDARD 99)
 
-add_executable(SemestralkaTicTacToe main.c)
+add_executable(SemestralkaTicTacToe main.c Client.h Server.h)
 
 target_link_libraries(SemestralkaTicTacToe pthread)

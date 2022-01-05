@@ -6,6 +6,7 @@
 #include <string.h>
 #include <unistd.h>
 #include <stdbool.h>
+#include "Server.h"
 
 bool connectionSuccesful = false;
 
