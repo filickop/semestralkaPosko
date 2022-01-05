@@ -111,13 +111,13 @@ void comunication() {
         }
         printf("Here is the message: %s\n", buffer);
 
-        //const char* msg = buffer;
-        for(int x = 0; x < 3; x++){
+
+        /*for(int x = 0; x < 3; x++){
             for(int y = 0; y < 3; y++) {
                 printf("%d", ticTacToeArrayS[x][y]);
             }
             printf("\n");
-        }
+        }*/
 
         if (n < 0)
         {
