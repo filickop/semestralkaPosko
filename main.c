@@ -4,7 +4,6 @@
 #include "Server.c"
 #include "Client.c"
 #include <pthread.h>
-#include <sdl2/sdl.h>
 
 char *connection[] = {"10907", "localhost", ""};
 
@@ -44,7 +43,7 @@ int main(int argc, char *argv[]) {
 
     srand(time(NULL));
 
-    if(false) {
+    if(true) {
         connection[2] = "S";
 
         pthread_t server;

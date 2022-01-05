@@ -1,1 +1,1 @@
-/usr/bin/cc -g CMakeFiles/SemestralkaTicTacToe.dir/main.c.o -o SemestralkaTicTacToe  -lpthread -lSDL2 
+/usr/bin/cc -g CMakeFiles/SemestralkaTicTacToe.dir/main.c.o -o SemestralkaTicTacToe  -lpthread 

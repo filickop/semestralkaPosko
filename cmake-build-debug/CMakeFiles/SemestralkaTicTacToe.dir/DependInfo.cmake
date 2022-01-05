@@ -4,13 +4,12 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_C
-  "/tmp/tmp.qi0qsv5C10/main.c" "/tmp/tmp.qi0qsv5C10/cmake-build-debug/CMakeFiles/SemestralkaTicTacToe.dir/main.c.o"
+  "/tmp/tmp.7fsTFgOky0/main.c" "/tmp/tmp.7fsTFgOky0/cmake-build-debug/CMakeFiles/SemestralkaTicTacToe.dir/main.c.o"
   )
 set(CMAKE_C_COMPILER_ID "GNU")
 
 # The include file search paths:
 set(CMAKE_C_TARGET_INCLUDE_PATH
-  "/usr/include/SDL2"
   )
 
 # Targets to which this target links.
