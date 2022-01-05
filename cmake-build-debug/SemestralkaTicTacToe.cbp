@@ -8,38 +8,38 @@
 		<Option virtualFolders="CMake Files\;"/>
 		<Build>
 			<Target title="all">
-				<Option working_dir="/tmp/tmp.qi0qsv5C10/cmake-build-debug"/>
+				<Option working_dir="/tmp/tmp.lpTHIfbsgv/cmake-build-debug"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="/usr/bin/gmake -f &quot;/tmp/tmp.qi0qsv5C10/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
-					<CompileFile command="/usr/bin/gmake -f &quot;/tmp/tmp.qi0qsv5C10/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/gmake -f &quot;/tmp/tmp.qi0qsv5C10/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/gmake -f &quot;/tmp/tmp.qi0qsv5C10/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/gmake -f &quot;/tmp/tmp.lpTHIfbsgv/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="/usr/bin/gmake -f &quot;/tmp/tmp.lpTHIfbsgv/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/gmake -f &quot;/tmp/tmp.lpTHIfbsgv/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/gmake -f &quot;/tmp/tmp.lpTHIfbsgv/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="rebuild_cache">
-				<Option working_dir="/tmp/tmp.qi0qsv5C10/cmake-build-debug"/>
+				<Option working_dir="/tmp/tmp.lpTHIfbsgv/cmake-build-debug"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="/usr/bin/gmake -f &quot;/tmp/tmp.qi0qsv5C10/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
-					<CompileFile command="/usr/bin/gmake -f &quot;/tmp/tmp.qi0qsv5C10/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/gmake -f &quot;/tmp/tmp.qi0qsv5C10/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/gmake -f &quot;/tmp/tmp.qi0qsv5C10/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/gmake -f &quot;/tmp/tmp.lpTHIfbsgv/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
+					<CompileFile command="/usr/bin/gmake -f &quot;/tmp/tmp.lpTHIfbsgv/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/gmake -f &quot;/tmp/tmp.lpTHIfbsgv/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/gmake -f &quot;/tmp/tmp.lpTHIfbsgv/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="edit_cache">
-				<Option working_dir="/tmp/tmp.qi0qsv5C10/cmake-build-debug"/>
+				<Option working_dir="/tmp/tmp.lpTHIfbsgv/cmake-build-debug"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="/usr/bin/gmake -f &quot;/tmp/tmp.qi0qsv5C10/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
-					<CompileFile command="/usr/bin/gmake -f &quot;/tmp/tmp.qi0qsv5C10/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/gmake -f &quot;/tmp/tmp.qi0qsv5C10/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/gmake -f &quot;/tmp/tmp.qi0qsv5C10/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/gmake -f &quot;/tmp/tmp.lpTHIfbsgv/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
+					<CompileFile command="/usr/bin/gmake -f &quot;/tmp/tmp.lpTHIfbsgv/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/gmake -f &quot;/tmp/tmp.lpTHIfbsgv/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/gmake -f &quot;/tmp/tmp.lpTHIfbsgv/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="SemestralkaTicTacToe">
-				<Option output="/tmp/tmp.qi0qsv5C10/cmake-build-debug/SemestralkaTicTacToe" prefix_auto="0" extension_auto="0"/>
-				<Option working_dir="/tmp/tmp.qi0qsv5C10/cmake-build-debug"/>
+				<Option output="/tmp/tmp.lpTHIfbsgv/cmake-build-debug/SemestralkaTicTacToe" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/tmp/tmp.lpTHIfbsgv/cmake-build-debug"/>
 				<Option object_output="./"/>
 				<Option type="1"/>
 				<Option compiler="gcc"/>
@@ -50,15 +50,15 @@
 					<Add directory="/usr/include"/>
 				</Compiler>
 				<MakeCommands>
-					<Build command="/usr/bin/gmake -f &quot;/tmp/tmp.qi0qsv5C10/cmake-build-debug/Makefile&quot;  VERBOSE=1 SemestralkaTicTacToe"/>
-					<CompileFile command="/usr/bin/gmake -f &quot;/tmp/tmp.qi0qsv5C10/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/gmake -f &quot;/tmp/tmp.qi0qsv5C10/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/gmake -f &quot;/tmp/tmp.qi0qsv5C10/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/gmake -f &quot;/tmp/tmp.lpTHIfbsgv/cmake-build-debug/Makefile&quot;  VERBOSE=1 SemestralkaTicTacToe"/>
+					<CompileFile command="/usr/bin/gmake -f &quot;/tmp/tmp.lpTHIfbsgv/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/gmake -f &quot;/tmp/tmp.lpTHIfbsgv/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/gmake -f &quot;/tmp/tmp.lpTHIfbsgv/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="SemestralkaTicTacToe/fast">
-				<Option output="/tmp/tmp.qi0qsv5C10/cmake-build-debug/SemestralkaTicTacToe" prefix_auto="0" extension_auto="0"/>
-				<Option working_dir="/tmp/tmp.qi0qsv5C10/cmake-build-debug"/>
+				<Option output="/tmp/tmp.lpTHIfbsgv/cmake-build-debug/SemestralkaTicTacToe" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/tmp/tmp.lpTHIfbsgv/cmake-build-debug"/>
 				<Option object_output="./"/>
 				<Option type="1"/>
 				<Option compiler="gcc"/>
@@ -69,23 +69,23 @@
 					<Add directory="/usr/include"/>
 				</Compiler>
 				<MakeCommands>
-					<Build command="/usr/bin/gmake -f &quot;/tmp/tmp.qi0qsv5C10/cmake-build-debug/Makefile&quot;  VERBOSE=1 SemestralkaTicTacToe/fast"/>
-					<CompileFile command="/usr/bin/gmake -f &quot;/tmp/tmp.qi0qsv5C10/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/gmake -f &quot;/tmp/tmp.qi0qsv5C10/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/gmake -f &quot;/tmp/tmp.qi0qsv5C10/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/gmake -f &quot;/tmp/tmp.lpTHIfbsgv/cmake-build-debug/Makefile&quot;  VERBOSE=1 SemestralkaTicTacToe/fast"/>
+					<CompileFile command="/usr/bin/gmake -f &quot;/tmp/tmp.lpTHIfbsgv/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/gmake -f &quot;/tmp/tmp.lpTHIfbsgv/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/gmake -f &quot;/tmp/tmp.lpTHIfbsgv/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 		</Build>
-		<Unit filename="/tmp/tmp.qi0qsv5C10/Client.h">
+		<Unit filename="/tmp/tmp.lpTHIfbsgv/Client.h">
 			<Option target="SemestralkaTicTacToe"/>
 		</Unit>
-		<Unit filename="/tmp/tmp.qi0qsv5C10/Server.h">
+		<Unit filename="/tmp/tmp.lpTHIfbsgv/Server.h">
 			<Option target="SemestralkaTicTacToe"/>
 		</Unit>
-		<Unit filename="/tmp/tmp.qi0qsv5C10/main.c">
+		<Unit filename="/tmp/tmp.lpTHIfbsgv/main.c">
 			<Option target="SemestralkaTicTacToe"/>
 		</Unit>
-		<Unit filename="/tmp/tmp.qi0qsv5C10/CMakeLists.txt">
+		<Unit filename="/tmp/tmp.lpTHIfbsgv/CMakeLists.txt">
 			<Option virtualFolder="CMake Files\"/>
 		</Unit>
 	</Project>

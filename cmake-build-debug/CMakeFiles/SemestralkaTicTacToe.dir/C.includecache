@@ -1,4 +1,4 @@
-#IncludeRegexLine: ^[ 	]*#[ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
 
 #IncludeRegexScan: ^.*$
 
@@ -39,12 +39,20 @@ string.h
 -
 unistd.h
 -
+stdbool.h
+-
 
 /tmp/tmp.lpTHIfbsgv/main.c
 stdio.h
+-
+stdlib.h
+-
+string.h
 -
 Server.c
 /tmp/tmp.lpTHIfbsgv/Server.c
 Client.c
 /tmp/tmp.lpTHIfbsgv/Client.c
+pthread.h
+-
 
