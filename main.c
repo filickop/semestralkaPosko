@@ -4,7 +4,7 @@
 #include "Server.c"
 #include "Client.c"
 #include <pthread.h>
-char *connection[] = {"1030", "localhost", ""};
+char *connection[] = {"17376", "localhost", ""};
 
 void * spustiServer(void * data) {
 

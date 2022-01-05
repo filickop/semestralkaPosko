@@ -8,7 +8,7 @@
 #include <stdbool.h>
 #include "Server.h"
 
-bool connectionSuccesful = false;
+/*bool connectionSuccesful = false;
 
 int sockfd, player1, player2;
 socklen_t cli_len;
@@ -16,7 +16,7 @@ struct sockaddr_in serv_addr, cli_addr;
 int n;
 char buffer[256];
 
-int ticTacToeArrayS[3][3];
+int ticTacToeArrayS[3][3];*/
 
 bool connEst(char *conn[]) {
 
@@ -135,9 +135,8 @@ void comunication() {
 
     }
     close(player1);
-}
-
-void offServer() {
+    close(player2);
     close(sockfd);
 }
+
 
