@@ -74,7 +74,7 @@ int communicationClient() {
 
 
             if (bufferC[2] == '3') {
-
+                writeToArrayC(1);
                 writeArrayToScreen();
                 printf("Nastala remiza\n");
 
@@ -88,6 +88,7 @@ int communicationClient() {
             }
 
             writeToArrayC(1);
+            writeArrayToScreen();
 
             //printf("%s\n",bufferC);
         }
@@ -133,6 +134,7 @@ int communicationClient() {
 
 
             if (bufferC[2] == '3') {
+                writeToArrayC(1);
                 writeArrayToScreen();
                 printf("Nastala remiza\n");
 
