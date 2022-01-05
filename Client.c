@@ -71,15 +71,17 @@ int communicationClient() {
             }
 
             writeToArrayC(1);
+            writeArrayToScreen();
 
-
-            if(bufferC[2] != '0') {
+            if (bufferC[2] == '3') {
+                printf("Nastala remiza\n");
+                break;
+            }
+            else if(bufferC[2] != '0') {
                 printf("Vyhrava %d\n", (bufferC[2] - '0'));
                 break;
             }
-            printf("%s\n",bufferC);
-
-            writeArrayToScreen();
+            //printf("%s\n",bufferC);
         }
         int xTemp;
         int yTemp;
@@ -120,14 +122,17 @@ int communicationClient() {
             }
 
             writeToArrayC(2);
+            writeArrayToScreen();
 
-            if(bufferC[2] != '0') {
-                printf("Vyhrava %d\n", (bufferC[2] - '0'));
-
+            if (bufferC[2] == '3') {
+                printf("Nastala remiza\n");
                 break;
             }
-            printf("%s\n", bufferC);
-            writeArrayToScreen();
+            else if(bufferC[2] != '0') {
+                printf("Vyhrava %d\n", (bufferC[2] - '0'));
+                break;
+            }
+            //printf("%s\n", bufferC);
         }
     }
     close(sockfdClient);

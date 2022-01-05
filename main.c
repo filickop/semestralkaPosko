@@ -85,7 +85,6 @@ int main(int argc, char *argv[]) {
             printf("zadali ste nespravne cislo portu alebo nespravny format\n");
         } while (true);
         connection[0] = bufff;
-        printf("%c\n", connection[0]);
         connection[2] = "C";
         pthread_t client;
         pthread_create(&client, NULL, spustiClient, NULL);

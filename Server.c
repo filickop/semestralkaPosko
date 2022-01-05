@@ -44,6 +44,17 @@ int checker() {
     if(ticTacToeArrayS[0][2] == ticTacToeArrayS[1][1] && ticTacToeArrayS[0][2] == ticTacToeArrayS[2][0] && ticTacToeArrayS[0][2] != 0) {
         return ticTacToeArrayS[0][2];
     }
+    int count = 0;
+    for (int i = 0; i < 3; ++i) {
+        for (int j = 0; j < 3; ++j) {
+            if (ticTacToeArrayS[i][j] != 0) {
+                count++;
+            }
+        }
+    }
+    if (count == 9) {
+        return 3;
+    }
     return 0;
 }
 
