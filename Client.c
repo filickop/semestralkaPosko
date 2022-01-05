@@ -105,21 +105,21 @@ int communicationClient() {
         int yTemp;
         bool isCorrect = false;
         do{
-            printf("Please enter a message: ");
+            printf("Vloz suradnice [0-2][0-2]: ");
             bzero(bufferC,256);
             fgets(bufferC, 255, stdin);
 
             xTemp = bufferC[0] - '0';
             yTemp = bufferC[1] - '0';
-
-            if(xTemp < 0 || xTemp > 2 || yTemp < 0 || yTemp > 2) {
+            if(xTemp < 0 || xTemp > 2 || yTemp < 0 || yTemp > 2 || strlen(bufferC) > 3) {
+                printf("Nespravny vstup (format vstupu: [0-2][0-2])");
                 isCorrect = false;
             }
             else {
                 isCorrect = true;
             }
 
-        } while(ticTacToeArrayC[xTemp][yTemp] != 0 && isCorrect);
+        } while(ticTacToeArrayC[xTemp][yTemp] != 0 || !isCorrect);
 
 
         //printf(bufferC);
