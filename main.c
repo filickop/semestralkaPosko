@@ -18,7 +18,7 @@ void * spustiServer(void * data) {
         sprintf(str,"%d", port );
 
         connection[0] = str;
-        printf(connection[0]);
+        printf("cislo portu servera: %s\n", connection[0]);
         printf("\n");
         connectionSuccessfull = connEst(connection);
     } while(!connectionSuccessfull);

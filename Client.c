@@ -71,6 +71,7 @@ int communicationClient() {
 
         if(connection[2] == "C") {
 
+            printf("na rade je super...\n");
             bzero(bufferC,256);
             nClient = read(sockfdClient, bufferC, 255);
             if (nClient < 0)
@@ -78,8 +79,6 @@ int communicationClient() {
                 perror("Error reading from socket");
                 return 6;
             }
-
-
 
 
             if (bufferC[2] == '3') {
@@ -112,6 +111,7 @@ int communicationClient() {
             xTemp = bufferC[0] - '0';
             yTemp = bufferC[1] - '0';
             if(xTemp < 0 || xTemp > 2 || yTemp < 0 || yTemp > 2 || strlen(bufferC) > 3) {
+                writeArrayToScreen();
                 printf("Nespravny vstup (format vstupu: [0-2][0-2])");
                 isCorrect = false;
             }
@@ -140,15 +140,13 @@ int communicationClient() {
 
         if(connection[2] == "S") {
 
+            printf("na rade je super...\n");
             bzero(bufferC, 256);
             nClient = read(sockfdClient, bufferC, 255);
             if (nClient < 0) {
                 perror("Error reading from socket");
                 return 6;
             }
-
-
-
 
             if (bufferC[2] == '3') {
                 writeToArrayC(1);
