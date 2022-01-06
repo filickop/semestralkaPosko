@@ -40,23 +40,24 @@ void writeToArrayC(int symbol) {
 }
 
 void writeArrayToScreen() {
-    printf("POLE CLIENT\n");
+    printf("XOXOXOX\n");
+    printf("  0 1 2\n");
     for(int x = 0; x < 3; x++){
+        printf("%d ", x);
         for(int y = 0; y < 3; y++) {
             if(ticTacToeArrayC[x][y] == 1) {
-                printf("X");
+                printf("X ");
             }
             else if(ticTacToeArrayC[x][y] == 2) {
-                printf("O");
+                printf("O ");
             }
             else {
-                printf("-");
+                printf("- ");
             }
-
         }
         printf("\n");
     }
-    printf("POLE CLIENT END\n");
+    printf("XOXOXOX\n");
 }
 
 int communicationClient() {
@@ -104,7 +105,7 @@ int communicationClient() {
         int yTemp;
         bool isCorrect = false;
         do{
-            printf("Vloz suradnice [0-2][0-2]: ");
+            printf("Vloz suradnice (najprv riadok potom stlpec)[0-2][0-2]: ");
             bzero(bufferC,256);
             fgets(bufferC, 255, stdin);
 
@@ -112,7 +113,7 @@ int communicationClient() {
             yTemp = bufferC[1] - '0';
             if(xTemp < 0 || xTemp > 2 || yTemp < 0 || yTemp > 2 || strlen(bufferC) > 3) {
                 writeArrayToScreen();
-                printf("Nespravny vstup (format vstupu: [0-2][0-2])");
+                printf("Nespravny vstup (format vstupu: (najprv riadok potom stlpec)[0-2][0-2])");
                 isCorrect = false;
             }
             else {
