@@ -20,7 +20,7 @@ bool connEst(char *conn[]) {
         return false;
     }
 
-    listen(sockfd, 5);
+    listen(sockfd, 2);
 
     for (int i = 0; i < 3; ++i) {
         for (int j = 0; j < 3; ++j) {
