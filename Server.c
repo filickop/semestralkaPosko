@@ -22,11 +22,6 @@ bool connEst(char *conn[]) {
 
     listen(sockfd, 2);
 
-    /*for (int i = 0; i < 3; ++i) {
-        for (int j = 0; j < 3; ++j) {
-            ticTacToeArrayS[i][j] = 0;
-        }
-    }*/
     return true;
 }
 int checker(int ticTacToeArrayS[3][3]) {
@@ -70,8 +65,6 @@ void * fPlay1(void * data) {
         int x = buffer[0]-'0';
         int y = buffer[1]-'0';
         pole->ticTacToeArrayS[x][y] = 1;
-        //ticTacToeArrayS[x][y] = 1;
-        //player1Play = false;
 
         buffer[2] = checker(pole->ticTacToeArrayS) + '0';
         n = write(player2, buffer, strlen(buffer)+1);
@@ -99,8 +92,6 @@ void * fPlay2(void * data) {
         int x = buffer[0]-'0';
         int y = buffer[1]-'0';
         pole->ticTacToeArrayS[x][y] = 2;
-        //ticTacToeArrayS[x][y] = 2;
-        //player1Play = true;
 
         buffer[2] = checker(pole->ticTacToeArrayS) + '0';
         n = write(player1, buffer, strlen(buffer)+1);
