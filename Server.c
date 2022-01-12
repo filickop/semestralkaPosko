@@ -58,6 +58,62 @@ int checker() {
     return 0;
 }
 
+void * fPlay1(void * data) {
+    HPOLE * pole = data;
+
+    while (!pole->koniecHry) {
+        pthread_mutex_lock(pole->mutex);
+        pthread_cond_wait(pole->play1, pole->mutex);
+
+        n = read(player1, buffer, 255);
+
+        int x = buffer[0]-'0';
+        int y = buffer[1]-'0';
+        ticTacToeArrayS[x][y] = 1;
+        //player1Play = false;
+
+        buffer[2] = checker() + '0';
+        n = write(player2, buffer, strlen(buffer)+1);
+
+        if(checker() != 0) {
+            n = write(player2, buffer, strlen(buffer)+1);
+            n = write(player1, buffer, strlen(buffer)+1);
+            break;
+        }
+
+        pthread_cond_signal(pole->play2);
+        pthread_mutex_unlock(pole->mutex);
+    }
+
+}
+
+void * fPlay2(void * data) {
+    HPOLE * pole = data;
+    while (!pole->koniecHry) {
+        pthread_mutex_lock(pole->mutex);
+        pthread_cond_wait(pole->play2, pole->mutex);
+
+        n = read(player2, buffer, 255);
+
+        int x = buffer[0]-'0';
+        int y = buffer[1]-'0';
+        ticTacToeArrayS[x][y] = 2;
+        //player1Play = true;
+
+        buffer[2] = checker() + '0';
+        n = write(player1, buffer, strlen(buffer)+1);
+
+        if(checker() != 0) {
+            n = write(player2, buffer, strlen(buffer)+1);
+            n = write(player1, buffer, strlen(buffer)+1);
+            break;
+        }
+
+        pthread_cond_signal(pole->play1);
+        pthread_mutex_unlock(pole->mutex);
+    }
+}
+
 void comunication() {
     cli_len = sizeof(cli_addr);
     player1 = accept(sockfd, (struct sockaddr*)&cli_addr, &cli_len);
@@ -67,13 +123,36 @@ void comunication() {
         perror("ERROR on accept");
         //return 3;
     }
+    int tempTicTacToeArrayS[3][3];
     for(int x = 0; x < 3; x++){
         for(int y = 0; y < 3; y++) {
-            ticTacToeArrayS[x][y] = 0;
+            tempTicTacToeArrayS[x][y] = 0;
         }
     }
     bool player1Play = true;
-    for(;;) {
+
+    pthread_t player1T, player2T;
+    pthread_mutex_t mutex;
+    pthread_mutex_init(&mutex, NULL);
+    pthread_cond_t play1, play2;
+    pthread_cond_init(&play1, NULL);
+    pthread_cond_init(&play2, NULL);
+
+
+
+
+    HPOLE ticTacToe  = {false,&mutex, &play1, &play2, &tempTicTacToeArrayS};
+    pthread_create(&player1T, NULL, fPlay1, &ticTacToe);
+    pthread_create(&player2T, NULL, fPlay2, &ticTacToe);
+    pthread_join(player1T,NULL);
+    pthread_join(player2T, NULL);
+
+
+    pthread_mutex_destroy(&mutex);
+    pthread_cond_destroy(&play1);
+    pthread_cond_destroy(&play2);
+
+    /*for(;;) {
 
         bzero(buffer,256);
         if(player1Play) {
@@ -107,26 +186,13 @@ void comunication() {
         if (n < 0)
         {
             perror("Error reading from socket");
-            //return 4;
         }
-        //printf("Here is the message: %s\n", buffer);
-
-
-        /*for(int x = 0; x < 3; x++){
-            for(int y = 0; y < 3; y++) {
-                printf("%d", ticTacToeArrayS[x][y]);
-            }
-            printf("\n");
-        }*/
 
         if (n < 0)
         {
             perror("Error writing to socket");
-            //return 5;
         }
-
-
-    }
+    }*/
     close(player1);
     close(player2);
     close(sockfd);

@@ -6,6 +6,7 @@
 #include <string.h>
 #include <unistd.h>
 #include <stdbool.h>
+#include <pthread.h>
 
 #ifndef SEMESTRALKATICTACTOE_SERVER_H
 #define SEMESTRALKATICTACTOE_SERVER_H
@@ -24,5 +25,13 @@ bool connEst(char *conn[]);
 int checker();
 
 void comunication();
+
+typedef struct hPole {
+    bool koniecHry;
+    pthread_mutex_t * mutex;
+    pthread_cond_t * play1;
+    pthread_cond_t * play2;
+    int * ticTacToeArrayS[3][3];
+} HPOLE;
 
 #endif //SEMESTRALKATICTACTOE_SERVER_H
