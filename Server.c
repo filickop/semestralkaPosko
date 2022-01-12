@@ -22,14 +22,14 @@ bool connEst(char *conn[]) {
 
     listen(sockfd, 2);
 
-    for (int i = 0; i < 3; ++i) {
+    /*for (int i = 0; i < 3; ++i) {
         for (int j = 0; j < 3; ++j) {
             ticTacToeArrayS[i][j] = 0;
         }
-    }
+    }*/
     return true;
 }
-int checker() {
+int checker(int ticTacToeArrayS[3][3]) {
     for(int i = 0; i < 3; i++) {
         if(ticTacToeArrayS[0][i] == ticTacToeArrayS[1][i] && ticTacToeArrayS[0][i] == ticTacToeArrayS[2][i] && ticTacToeArrayS[0][i] != 0) {
             return ticTacToeArrayS[0][i];
@@ -61,7 +61,7 @@ int checker() {
 void * fPlay1(void * data) {
     HPOLE * pole = data;
 
-    while (!pole->koniecHry) {
+    while (true) {
         pthread_mutex_lock(pole->mutex);
         pthread_cond_wait(pole->play1, pole->mutex);
 
@@ -69,13 +69,14 @@ void * fPlay1(void * data) {
 
         int x = buffer[0]-'0';
         int y = buffer[1]-'0';
-        ticTacToeArrayS[x][y] = 1;
+        pole->ticTacToeArrayS[x][y] = 1;
+        //ticTacToeArrayS[x][y] = 1;
         //player1Play = false;
 
-        buffer[2] = checker() + '0';
+        buffer[2] = checker(pole->ticTacToeArrayS) + '0';
         n = write(player2, buffer, strlen(buffer)+1);
 
-        if(checker() != 0) {
+        if(checker(pole->ticTacToeArrayS) != 0) {
             n = write(player2, buffer, strlen(buffer)+1);
             n = write(player1, buffer, strlen(buffer)+1);
             break;
@@ -89,7 +90,7 @@ void * fPlay1(void * data) {
 
 void * fPlay2(void * data) {
     HPOLE * pole = data;
-    while (!pole->koniecHry) {
+    while (true) {
         pthread_mutex_lock(pole->mutex);
         pthread_cond_wait(pole->play2, pole->mutex);
 
@@ -97,13 +98,14 @@ void * fPlay2(void * data) {
 
         int x = buffer[0]-'0';
         int y = buffer[1]-'0';
-        ticTacToeArrayS[x][y] = 2;
+        pole->ticTacToeArrayS[x][y] = 2;
+        //ticTacToeArrayS[x][y] = 2;
         //player1Play = true;
 
-        buffer[2] = checker() + '0';
+        buffer[2] = checker(pole->ticTacToeArrayS) + '0';
         n = write(player1, buffer, strlen(buffer)+1);
 
-        if(checker() != 0) {
+        if(checker(pole->ticTacToeArrayS) != 0) {
             n = write(player2, buffer, strlen(buffer)+1);
             n = write(player1, buffer, strlen(buffer)+1);
             break;
@@ -129,7 +131,6 @@ void comunication() {
             tempTicTacToeArrayS[x][y] = 0;
         }
     }
-    bool player1Play = true;
 
     pthread_t player1T, player2T;
     pthread_mutex_t mutex;
@@ -141,7 +142,7 @@ void comunication() {
 
 
 
-    HPOLE ticTacToe  = {false,&mutex, &play1, &play2, &tempTicTacToeArrayS};
+    HPOLE ticTacToe  = {&mutex, &play1, &play2, &tempTicTacToeArrayS};
     pthread_create(&player1T, NULL, fPlay1, &ticTacToe);
     pthread_create(&player2T, NULL, fPlay2, &ticTacToe);
     pthread_join(player1T,NULL);
@@ -152,47 +153,7 @@ void comunication() {
     pthread_cond_destroy(&play1);
     pthread_cond_destroy(&play2);
 
-    /*for(;;) {
 
-        bzero(buffer,256);
-        if(player1Play) {
-            n = read(player1, buffer, 255);
-
-            int x = buffer[0]-'0';
-            int y = buffer[1]-'0';
-            ticTacToeArrayS[x][y] = 1;
-            player1Play = false;
-
-            buffer[2] = checker() + '0';
-            n = write(player2, buffer, strlen(buffer)+1);
-        }
-        else {
-            n = read(player2, buffer, 255);
-
-            int x = buffer[0]-'0';
-            int y = buffer[1]-'0';
-            ticTacToeArrayS[x][y] = 2;
-            player1Play = true;
-
-            buffer[2] = checker() + '0';
-            n = write(player1, buffer, strlen(buffer)+1);
-        }
-        if(checker() != 0) {
-            n = write(player2, buffer, strlen(buffer)+1);
-            n = write(player1, buffer, strlen(buffer)+1);
-            break;
-        }
-
-        if (n < 0)
-        {
-            perror("Error reading from socket");
-        }
-
-        if (n < 0)
-        {
-            perror("Error writing to socket");
-        }
-    }*/
     close(player1);
     close(player2);
     close(sockfd);
